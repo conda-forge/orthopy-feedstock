@@ -1,5 +1,5 @@
 {% set name = "orthopy" %}
-{% set version = "0.8.4" %}
+{% set version = "0.8.5" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/orthopy-{{ version }}.tar.gz
-  sha256: f4feae231ffba7ccee04293e094dac2b4b336a16c5adf6ffa505c4d1188718f7
+  sha256: 30c0d4e1c8d26a7edca598eb376bf164e0c872379cca02a2f9a64b3dd2686ccc
 
 build:
   number: 0
@@ -38,7 +38,7 @@ about:
   license: GPL-3.0-only
   license_family: GPL
   license_file: LICENSE.txt
-  summary: 'Orthogonal polynomials in all shapes and sizes.'
+  summary: Orthogonal polynomials in all shapes and sizes.
   description: |
     orthopy provides various orthogonal polynomial classes for 
     lines, triangles, disks, spheres, n-cubes, the nD space with
