@@ -1,5 +1,5 @@
 {% set name = "orthopy" %}
-{% set version = "0.9.4" %}
+{% set version = "0.9.5" %}
 
 
 package:
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/orthopy-{{ version }}.tar.gz
-  sha256: e4e541311c530c25cbbb6ceb29a2492f39a1a5d10c6871fad6a003a2bcc6c4a8
+  sha256: 4058c0785d68a2832e46b00c28320bc50cbaf48ca44f002a761f66c5f0b921ea
 
 build:
   number: 0
