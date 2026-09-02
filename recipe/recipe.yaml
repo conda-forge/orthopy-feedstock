@@ -1,0 +1,56 @@
+schema_version: 1
+
+context:
+  name: orthopy
+  version: 0.9.5
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.io/packages/source/${{ name[0] }}/${{ name }}-gpl/orthopy-gpl-${{ version }}.tar.gz
+  sha256: c1f902bc4150e773c00b67c57389f78c638ee0f97238d3511071fcea93407200
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - pip
+    - python ${{ python_min }}.*
+  run:
+    - importlib-metadata
+    - numpy
+    - python >=${{ python_min }}
+    - sympy
+
+tests:
+  - python:
+      imports:
+        - orthopy
+      pip_check: true
+      python_version:
+        - ${{ python_min }}
+        - "*"
+
+about:
+  license: GPL-3.0-only
+  license_file: LICENSE.txt
+  summary: Orthogonal polynomials in all shapes and sizes.
+  description: |
+    orthopy provides various orthogonal polynomial classes for
+    lines, triangles, disks, spheres, n-cubes, the nD space with
+    weight function exp(-r2) and more. All computations are done
+    using numerically stable recurrence schemes. Furthermore, all
+    functions are fully vectorized and can return results in exact
+    arithmetic.
+  homepage: https://github.com/nschloe/orthopy
+  repository: https://github.com/nschloe/orthopy
+  documentation: https://github.com/nschloe/orthopy
+
+extra:
+  recipe-maintainers:
+    - jan-janssen
