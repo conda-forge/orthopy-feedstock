@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: orthopy
-  version: "0.9.5"
+  version: 0.9.5
 
 package:
   name: ${{ name|lower }}
@@ -15,16 +15,16 @@ source:
 build:
   number: 1
   noarch: python
-  script: ${{ PYTHON }} -m pip install . -vv
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
     - pip
-    - python >=3.5
+    - python ${{ python_min }}.*
   run:
     - importlib-metadata
     - numpy
-    - python >=3.5
+    - python >=${{ python_min }}
     - sympy
 
 tests:
@@ -32,6 +32,9 @@ tests:
       imports:
         - orthopy
       pip_check: true
+      python_version:
+        - ${{ python_min }}
+        - "*"
 
 about:
   license: GPL-3.0-only
