@@ -9,8 +9,8 @@ package:
   version: ${{ version }}
 
 source:
-  url: https://pypi.io/packages/source/${{ name[0] }}/${{ name }}/orthopy-${{ version }}.tar.gz
-  sha256: 4058c0785d68a2832e46b00c28320bc50cbaf48ca44f002a761f66c5f0b921ea
+  url: https://pypi.io/packages/source/${{ name[0] }}/${{ name }}-gpl/orthopy-gpl-${{ version }}.tar.gz
+  sha256: c1f902bc4150e773c00b67c57389f78c638ee0f97238d3511071fcea93407200
 
 build:
   number: 1
