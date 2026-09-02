@@ -1,19 +1,21 @@
-{% set name = "orthopy" %}
-{% set version = "0.9.5" %}
+schema_version: 1
 
+context:
+  name: orthopy
+  version: "0.9.5"
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: ${{ name|lower }}
+  version: ${{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/orthopy-{{ version }}.tar.gz
+  url: https://pypi.io/packages/source/${{ name[0] }}/${{ name }}/orthopy-${{ version }}.tar.gz
   sha256: 4058c0785d68a2832e46b00c28320bc50cbaf48ca44f002a761f66c5f0b921ea
 
 build:
-  number: 0
+  number: 1
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: ${{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
@@ -25,29 +27,26 @@ requirements:
     - python >=3.5
     - sympy
 
-test:
-  imports:
-    - orthopy
-  commands:
-    - pip check
-  requires:
-    - pip
+tests:
+  - python:
+      imports:
+        - orthopy
+      pip_check: true
 
 about:
-  home: https://github.com/nschloe/orthopy
   license: GPL-3.0-only
-  license_family: GPL
   license_file: LICENSE.txt
   summary: Orthogonal polynomials in all shapes and sizes.
   description: |
-    orthopy provides various orthogonal polynomial classes for 
+    orthopy provides various orthogonal polynomial classes for
     lines, triangles, disks, spheres, n-cubes, the nD space with
     weight function exp(-r2) and more. All computations are done
     using numerically stable recurrence schemes. Furthermore, all
     functions are fully vectorized and can return results in exact
     arithmetic.
-  doc_url: https://github.com/nschloe/orthopy
-  dev_url: https://github.com/nschloe/orthopy
+  homepage: https://github.com/nschloe/orthopy
+  repository: https://github.com/nschloe/orthopy
+  documentation: https://github.com/nschloe/orthopy
 
 extra:
   recipe-maintainers:
